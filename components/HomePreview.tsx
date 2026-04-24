@@ -12,16 +12,16 @@ export default function HomePreview({ initialData }: { initialData: { title: str
   const [home, setHome] = useState(initialData);
 
   const inspectorProps = useContentfulInspectorMode({ entryId: "58tcaO243ZUIbAf1Rft469" });
-  const updatedBlog = useContentfulLiveUpdates(home);  
+  const updatedBlog = useContentfulLiveUpdates(home[0]);  
   return (
     <>
 
 
-      {updatedBlog.map((post, idx) => (
-        <div key={idx} className="border p-4 rounded shadow">
-          <p  {...inspectorProps({ fieldId: 'title' })} className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">{post.title}</p>
+      
+        <div className="border p-4 rounded shadow">
+          <p  {...inspectorProps({ fieldId: 'title' })} className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">{updatedBlog.title}</p>
         </div>
-      ))}
+     
     </>
 
      
