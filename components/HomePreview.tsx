@@ -21,7 +21,7 @@ export default function HomePreview({ initialData }: { initialData: { title: str
     <>
       {home.map((post, idx) => (
         <div key={idx} className="border p-4 rounded shadow">
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">{post.title}</p>
+          <p {...ContentfulLivePreview.getProps({ entryId: '58tcaO243ZUIbAf1Rft469', fieldId: 'title' })} className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">{post.title}</p>
         </div>
       ))}
     </>
