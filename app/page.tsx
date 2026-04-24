@@ -21,7 +21,7 @@ export default async function Home() {
 
     <ContentfulPreviewProvider
             locale="en-US"
-            enableInspectorMode={true}
+            enableInspectorMode={false}
             enableLiveUpdates={true}
           >
             <HomePreview  initialData={homeData}/>
