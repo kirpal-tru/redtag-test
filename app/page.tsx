@@ -27,11 +27,11 @@ export default async function Home() {
           priority
         />
         {home.map((post) => (
-            <div key={post.slug} className="border p-4 rounded shadow">
+            <div className="border p-4 rounded shadow">
               <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">{post.title}</p>
             </div>
           ))}
-          
+
         <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
           
           
