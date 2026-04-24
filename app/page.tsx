@@ -1,5 +1,7 @@
 import { client } from '@/lib/contentful';
 import HomePreview from "@/components/HomePreview";
+import { ContentfulPreviewProvider } from '@/components/ContentfulPreviewProvider';
+
 
 async function getHome() {
   const response = await client.getEntries({
@@ -12,12 +14,19 @@ async function getHome() {
 }
 
 export default async function Home() {
-  
+
   const homeData = await getHome();
- 
+
   return (
-   <>
-  <HomePreview initialData={homeData} />
-          </>
+
+    <ContentfulPreviewProvider
+            locale="en-US"
+            enableInspectorMode={true}
+            enableLiveUpdates={true}
+          >
+            <HomePreview  initialData={homeData}/>
+          </ContentfulPreviewProvider>
+
+   
   );
 }
