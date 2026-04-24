@@ -10,6 +10,8 @@ const nextConfig = {
     'local-origin.dev', 
     '*.local-origin.dev',
     '*.vercel.app',
+    'https://redtag-test-omsp-h4in1gqix-kirpal-trus-projects.vercel.app/',
+    'https://redtag-test-omsp-h4in1gqix-kirpal-trus-projects.vercel.app',
   ],
 };
 
