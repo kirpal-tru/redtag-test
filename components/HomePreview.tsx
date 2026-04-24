@@ -8,6 +8,9 @@ import {
   useContentfulLiveUpdates,
 } from '@contentful/live-preview/react';
 
+import { ContentfulLivePreview } from '@contentful/live-preview';
+
+
 export default function HomePreview({ initialData }: { initialData: { title: string }[] }) {
   const [home, setHome] = useState(initialData);
 
@@ -16,7 +19,15 @@ export default function HomePreview({ initialData }: { initialData: { title: str
   return (
     <>
 
-
+<p
+        {...ContentfulLivePreview.getProps({
+          entryId: "58tcaO243ZUIbAf1Rft469",
+          fieldId: 'title',
+          locale: 'en-US',
+        })}
+      >
+        {updatedBlog.title}
+      </p>
       
         <div className="border p-4 rounded shadow">
           <p  {...inspectorProps({ fieldId: 'title' })} className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">{updatedBlog.title}</p>
