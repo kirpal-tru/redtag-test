@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { client } from '@/lib/contentful';
+import { ContentfulLivePreview } from '@contentful/live-preview';
+import { useEffect } from "react";
 
 async function getHome() {
   const response = await client.getEntries({
@@ -13,6 +15,10 @@ async function getHome() {
 
 export default async function Home() {
 
+  useEffect(() => {
+    ContentfulLivePreview.init({ locale: 'en-US' });
+  }, []);
+  
   const home = await getHome();
  
   return (
