@@ -23,6 +23,7 @@ export default async function Home() {
             locale="en-US"
             enableInspectorMode={true}
             enableLiveUpdates={true}
+            targetOrigin="https://app.contentful.com"
           >
             <HomePreview  initialData={homeData}/>
           </ContentfulPreviewProvider>
