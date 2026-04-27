@@ -1,7 +1,15 @@
 import { createClient } from 'contentful';
 
+
+const space = process.env.CONTENTFUL_SPACE_ID;
+const token = process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN;
+
+if (!space || !token) {
+  throw new Error('Missing Contentful environment variables');
+}
+
 export const client = createClient({
-  space: process.env.CONTENTFUL_SPACE_ID,
-  accessToken: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN,
+  space,
+  accessToken: token,
   host: 'preview.contentful.com',
 });
