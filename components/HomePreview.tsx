@@ -1,41 +1,32 @@
-
 'use client'; 
 
 import { useEffect, useState } from 'react';
-
 import {
   useContentfulInspectorMode,
   useContentfulLiveUpdates,
 } from '@contentful/live-preview/react';
 
-import { ContentfulLivePreview } from '@contentful/live-preview';
+export default function HomePreview({ initialData }: { initialData: any[] }) {
+  
+  const [home] = useState(initialData);
+  const updatedEntry = useContentfulLiveUpdates(home[0]);
 
+  const inspectorProps = useContentfulInspectorMode({ 
+    entryId: home[0]?.sys?.id
+  });
 
-export default function HomePreview({ initialData }: { initialData: { title: string }[] }) {
-  const [home, setHome] = useState(initialData);
+  if (!updatedEntry) return null;
 
-  const inspectorProps = useContentfulInspectorMode({ entryId: "58tcaO243ZUIbAf1Rft469" });
-  const updatedBlog = useContentfulLiveUpdates(home[0]);  
   return (
-    <>
-
-<p
-        {...ContentfulLivePreview.getProps({
-          entryId: "58tcaO243ZUIbAf1Rft469",
-          fieldId: 'title',
-          locale: 'en-US',
-        })}
-      >
-        {updatedBlog.title}
-      </p>
-      
-        <div className="border p-4 rounded shadow">
-          <p  {...inspectorProps({ fieldId: 'title' })} className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">{updatedBlog.title}</p>
-        </div>
-     
-    </>
-
-     
-     
+    <div className="p-10">
+      <div className="border p-4 rounded shadow">
+        <p 
+          {...inspectorProps({ fieldId: 'title' })} 
+          className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400"
+        >
+          {updatedEntry.fields?.title || updatedEntry.title}
+        </p>
+      </div>
+    </div>
   );
 }
