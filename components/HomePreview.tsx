@@ -30,7 +30,7 @@ export default function HomePreview({ initialData }: { initialData: { title: str
       </p>
       
         <div className="border p-4 rounded shadow">
-          <p  {...inspectorProps({ fieldId: 'title' })} className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">{updatedBlog.title}</p>
+          <p  {...inspectorProps({ entryId: "58tcaO243ZUIbAf1Rft469", fieldId: 'title' })} className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">{updatedBlog.title}</p>
         </div>
      
     </>
