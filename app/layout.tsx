@@ -34,7 +34,7 @@ export default function RootLayout({
           enableInspectorMode={true}
           enableLiveUpdates={true}
           debugMode={true}
-          environment="master"
+          environment={process.env.CONTENTFUL_ENVIRONMENT || ""}
         >
         {children}
         </ContentfulLivePreviewProvider>

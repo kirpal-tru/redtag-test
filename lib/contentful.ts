@@ -11,8 +11,8 @@ if (!space || !token) {
 export const client = createClient({
   space,
   accessToken: token,
-  host: 'preview.contentful.com',
-  environment: 'master',
+  host: process.env.CONTENTFUL_HOST || "",
+  environment: process.env.CONTENTFUL_ENVIRONMENT || "",
 });
 
 export async function fetchHomePage() {
