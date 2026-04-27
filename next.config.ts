@@ -1,20 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  async headers() {
-    return [
-      {
-        source: "/(.*)",
-        headers: [
-          {
-            key: "Content-Security-Policy",
-            value:
-              "frame-ancestors 'self' https://app.contentful.com https://app.eu.contentful.com https://*.contentful.com",
-          },
-        ],
-      },
-    ];
+  images: {
+    remotePatterns: [{ protocol: "https", hostname: "images.unsplash.com" }],
   },
+  //allowedDevOrigins: ['local-origin.dev', '*.local-origin.dev'], 
 };
 
 export default nextConfig;
